@@ -77,6 +77,7 @@ class App extends Component {
 		}
 
 		const assignedClasses = [];
+
 		if (this.state.persons.length <= 2) {
 			assignedClasses.push(classes.red); // classes = ['red']
 		}
