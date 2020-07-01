@@ -28,10 +28,14 @@ class App extends Component {
 		showPersons: false,
 	};
 
+	// when ever your props change or ur class base component u can sync ur state to them
+	// rare
 	static getDerivedStateFromProps(props, state) {
 		console.log('[App.js] getDerivedStateFrom props', props);
 		return state;
 	}
+	// once render and render child components were rendered and their life cycle finish
+	// your life cycle component will finish when componentDidMount gets called
 	componentDidMount() {
 		console.log('[App.js] componentDidMount');
 	}
