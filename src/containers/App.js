@@ -3,10 +3,13 @@ import React, { useState, Component } from 'react';
 import classes from './App.css';
 import Persons from '../components/Persons/Persons';
 import Cockpit from '../components/Cockpit/Cockpit';
-// 4-11
+
 class App extends Component {
-	// second element will always be a function that allows us to update this state
-	// React is aware of it
+	constructor(props) {
+		super(props);
+		console.log('[App.js] constructor ');
+	}
+
 	state = {
 		persons: [
 			{ id: 'asfa1', name: 'Max', age: 28 },
@@ -24,6 +27,14 @@ class App extends Component {
 		otherState: 'Some other value',
 		showPersons: false,
 	};
+
+	static getDerivedStateFromProps(props, state) {
+		console.log('[App.js] getDerivedStateFrom props', props);
+		return state;
+	}
+	componentDidMount() {
+		console.log('[App.js] componentDidMount');
+	}
 
 	deletePersonHandler = (personIndex) => {
 		// const persons = this.state.persons.slice();
@@ -55,6 +66,7 @@ class App extends Component {
 	};
 
 	render() {
+		console.log('[App.js] render');
 		let persons = null;
 
 		if (this.state.showPersons) {
@@ -70,6 +82,7 @@ class App extends Component {
 		return (
 			<div className={classes.App}>
 				<Cockpit
+					title={this.props.appTitle}
 					showPersons={this.state.showPersons}
 					persons={this.state.persons}
 					clicked={this.togglePersonsHandler}
