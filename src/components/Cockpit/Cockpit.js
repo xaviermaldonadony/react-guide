@@ -2,15 +2,15 @@ import React, { useEffect } from 'react';
 import classes from './Cockpit.css';
 
 const cockpit = (props) => {
-	useEffect(() => {
-		console.log('[Cockpit.js] useEffect');
-		// Similar to ComponentDidMount and
-		// componentDidUpdate
-		// Http request ...
-		setTimeout(() => {
-			alert('Saved data');
-		}, 1000);
-	}, [props.persons]);
+	// useEffect(() => {
+	// 	console.log('[Cockpit.js] useEffect');
+	// 	// Similar to ComponentDidMount and
+	// 	// componentDidUpdate
+	// 	// Http request ...
+	// 	setTimeout(() => {
+	// 		alert('Saved data');
+	// 	}, 1000);
+	// }, [props.persons]); // multiple fields
 
 	useEffect(() => {
 		console.log('[Cockpit.js] useEffect []');
@@ -20,7 +20,17 @@ const cockpit = (props) => {
 		setTimeout(() => {
 			alert('Saved data');
 		}, 1000);
-	}, []);
+		return () => {
+			console.log('[cockpit.js] cleanup work in useEffect');
+		};
+	}, []); // wit that parameter it will run when rendered or unmounted
+
+	useEffect(() => {
+		console.log('[Cockpit.js] 2nd useEffect []');
+		return () => {
+			console.log('[cockpit.js] cleanup work in 2nd  useEffect');
+		};
+	});
 	const assignedClasses = [];
 	let btnClass = '';
 
