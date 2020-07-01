@@ -1,7 +1,26 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import classes from './Cockpit.css';
 
 const cockpit = (props) => {
+	useEffect(() => {
+		console.log('[Cockpit.js] useEffect');
+		// Similar to ComponentDidMount and
+		// componentDidUpdate
+		// Http request ...
+		setTimeout(() => {
+			alert('Saved data');
+		}, 1000);
+	}, [props.persons]);
+
+	useEffect(() => {
+		console.log('[Cockpit.js] useEffect []');
+		// Similar to ComponentDidMount and
+		// componentDidUpdate
+		// Http request ...
+		setTimeout(() => {
+			alert('Saved data');
+		}, 1000);
+	}, []);
 	const assignedClasses = [];
 	let btnClass = '';
 
