@@ -44,9 +44,11 @@ const cockpit = (props) => {
 	if (props.showPersons) {
 		btnClass = classes.Red;
 	}
+	// before props.persons.length
 	if (props.personsLength <= 2) {
 		assignedClasses.push(classes.red); // classes = ['red']
 	}
+	// before props.persons.length
 	if (props.personsLength <= 1) {
 		assignedClasses.push(classes.bold); // classes = ['red', 'bold']
 	}
@@ -61,4 +63,8 @@ const cockpit = (props) => {
 	);
 };
 
+// before
+// export default cockpit;
+// only if it's inputs changes it will rerender
+// other wise that stored snapshot will be returned
 export default React.memo(cockpit);
