@@ -31,22 +31,33 @@ class App extends Component {
 
 	// when ever your props change or ur class base component u can sync ur state to them
 	// rare
+	// Creationg LC
+	// Update LC
 	static getDerivedStateFromProps(props, state) {
 		console.log('[App.js] getDerivedStateFrom props', props);
 		return state;
 	}
+
 	// once render and render child components were rendered and their life cycle finish
 	// your life cycle component will finish when componentDidMount gets called
+	// Creationg LC
 	componentDidMount() {
 		console.log('[App.js] componentDidMount');
 	}
+
+	// Update LC
+	// state changes
 	shouldComponentUpdate(nextProps, nextState) {
 		console.log('[App.js] shouldComponentUpdate ');
 		return true;
 	}
+
+	// Update LC
+	// state changes
 	componentDidUpdate() {
 		console.log('[App.js] componentDidUpdate');
 	}
+
 	deletePersonHandler = (personIndex) => {
 		// const persons = this.state.persons.slice();
 		// an Es6 way
@@ -103,7 +114,7 @@ class App extends Component {
 					<Cockpit
 						title={this.props.appTitle}
 						showPersons={this.state.showPersons}
-						persons={this.state.persons}
+						personsLength={this.state.persons.length}
 						clicked={this.togglePersonsHandler}
 					/>
 				) : null}

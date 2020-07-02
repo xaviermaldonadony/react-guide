@@ -7,26 +7,42 @@ import React, { Component } from 'react';
 import Person from './Person/Person';
 // ES6 whats in the parenthesis gets returned
 class Persons extends Component {
+	// Update LC
+	// props changes
 	// static getDerivedStateFromProps(props, state) {
 	// 	console.log('[Persons.js] getderivesStateFromProps', state);
 	// 	return state;
 	// }
 
+	// Update LC
+	// props changes
 	shouldComponentUpdate(nextProps, nextState) {
 		console.log('[Persons.js] ShouldComponentUpdate');
-		return true;
+		if (nextProps.persons !== this.props.persons) {
+			return true;
+		} else {
+			return false;
+		}
 	}
+
+	// Update LC
+	// props changes
 	getSnapshotBeforeUpdate(prevProps, prevState) {
 		console.log('[Persons.js] getSnapShotBeforeUpdate');
 		return { message: 'Snapshot!' };
 	}
 
-	componentDidUpdate(prevProps, prevState, Snapshot) {
+	// Update LC
+	// props changes
+	componentDidUpdate(prevProps, prevState, snapshot) {
 		console.log('[Persons.js] componentDidUpdate');
-		// console.log(snapshot);
+		console.log(snapshot);
 	}
+
+	// Clean up LC
 	componentWillUnmount() {
 		console.log('[Persons.js] componentWillUnmount');
+		// run any code here right before component is removed
 	}
 	render() {
 		console.log('[Persons.js] rendering...');
