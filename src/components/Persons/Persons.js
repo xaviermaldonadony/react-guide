@@ -3,10 +3,12 @@
 // class base components for state managment
 // and functional components for the presentation of content
 
-import React, { Component } from 'react';
+// import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 import Person from './Person/Person';
 // ES6 whats in the parenthesis gets returned
-class Persons extends Component {
+// class Persons extends Component {
+class Persons extends PureComponent {
 	// Update LC
 	// props changes
 	// static getDerivedStateFromProps(props, state) {
@@ -16,14 +18,18 @@ class Persons extends Component {
 
 	// Update LC
 	// props changes
-	shouldComponentUpdate(nextProps, nextState) {
-		console.log('[Persons.js] ShouldComponentUpdate');
-		if (nextProps.persons !== this.props.persons) {
-			return true;
-		} else {
-			return false;
-		}
-	}
+	// shouldComponentUpdate(nextProps, nextState) {
+	// 	console.log('[Persons.js] ShouldComponentUpdate');
+	// 	if (
+	// 		nextProps.persons !== this.props.persons ||
+	// 		nextProps.changed !== this.props.changed ||
+	// 		nextProps.clicked !== this.props.clicked
+	// 	) {
+	// 		return true;
+	// 	} else {
+	// 		return false;
+	// 	}
+	// }
 
 	// Update LC
 	// props changes
