@@ -1,11 +1,11 @@
-// Persons Can be a functional component
-// Not managing state here
+// Persons Can be a functional component // Not managing state here
 // class base components for state managment
 // and functional components for the presentation of content
 
 // import React, { Component } from 'react';
 import React, { PureComponent } from 'react';
 import Person from './Person/Person';
+
 // ES6 whats in the parenthesis gets returned
 // class Persons extends Component {
 class Persons extends PureComponent {
